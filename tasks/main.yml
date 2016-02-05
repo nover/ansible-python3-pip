@@ -19,3 +19,4 @@
       - ipython 
       - jupyter 
       - matplotlib
+      - nltk
