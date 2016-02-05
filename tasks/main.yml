@@ -1,0 +1,21 @@
+---
+  - name: Ensure core runtime libs for pip packages are installed
+    apt: name={{item}} state=present
+    with_items:
+      - libatlas3gf-base
+      - liblapack-pic 
+      - liblapack3 
+      - liblapack3gf 
+      - liblapacke
+  - name: Install required pip packages from wheelhouse
+    pip: name={{item}} state=present extra_args='--no-index --find-links=http://wheelhouse.skarp.dk/' executable=pip3
+    with_items:
+      - wheel
+      - pip
+      - numpy 
+      - scipy
+      - pandas 
+      - sklearn 
+      - ipython 
+      - jupyter 
+      - matplotlib
